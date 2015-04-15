@@ -9,11 +9,14 @@ html
     link(rel='stylesheet', href=isProd ? '/index.min.css' : '/index.css')
     link(rel='shortcut icon', href='/favicon.ico')
   body
-    h1#header Welcome to Todo-Firebase
-    input#name(type=text, autofocus=true)
-    button#set-name Set Name
-    
-    .jumbotron.lessPadding
+    h1#header.centerText Welcome to Todo-Firebase
+    hr
+    .centerText
+      label Enter your name here:
+      input#name(type=text, autofocus=true)
+      button#set-name Set Name
+    hr
+    .jumbotron.lessPadding.centerText
       h2 Create a Task:
       #controls
         input#title(type='text', placeholder = 'Title')
@@ -23,6 +26,17 @@ html
           option Medium
           option Low
         button#create-task Create Task
+    hr
+    #table
+      table.table
+        thead
+          th Delete
+          th Is Complete?
+          th Title
+          th Due Date
+          th Priority
+          th Created At
+        tbody#toDos
 
 
     script(src='/vendor/jquery/dist/jquery.min.js')

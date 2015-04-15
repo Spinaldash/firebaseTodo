@@ -10,7 +10,14 @@ function init(){
   user = root.child('user');
   tasks = root.child('tasks');
   user.on('value', userChanged);
+  tasks.on('child_added', taskAdded);
   $('#create-task').on('click', createTask);
+}
+
+function taskAdded(snapshot){
+  var task = snapshot.val();
+  var tr = '<tr><td>x</td><td>'+task.isComplete+'</td><td>'+task.title+'</td><td>'+task.dueDate+'</td><td>'+task.priority+'</td><td>'+task.createdAt+'</td></tr>';
+  $('#toDos').append(tr);
 }
 
 function createTask(){
